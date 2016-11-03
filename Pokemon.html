@@ -1,0 +1,71 @@
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="Pokemon.js" defer></script>
+<link rel="stylesheet" type="text/css" href="Pokemon.css">
+<link rel="stylesheet" type="text/css" href="graph.css">
+
+<!-- component template -->
+<script type="text/x-template" id="grid-template">
+    <table>
+        <thead>
+        <tr>
+            <th v-for="key in columns"
+                @click="sortBy(key)"
+                :class="{ active: sortKey == key }">
+                {{ key | capitalize }}
+                <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+          </span>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="entry in filteredData">
+            <td v-for="key in columns">
+                {{entry[key]}}
+            </td>
+        </tr>
+        </tbody>
+        <select v-model="selected" multiple>
+            <option>Bulbasaur</option>
+            <option>Charmandar</option>
+            <option>Squirtle</option>
+        </select>
+        <br>
+        <span>Selected: {{ selected }}</span>
+    </table>
+
+</script>
+
+<script type="text/x-template" id="polygraph-template">
+    <g>
+        <polygon :points="points"></polygon>
+        <circle cx="100" cy="100" r="80"></circle>
+        <axis-label
+                v-for="(stat, index) in stats"
+                :stat="stat"
+                :index="index"
+                :total="stats.length">
+        </axis-label>
+    </g>
+
+</script>
+
+<!-- template for the axis label component. -->
+<script type="text/x-template" id="axis-label-template">
+    <text :x="point.x" :y="point.y">{{stat.label}}</text>
+</script>
+<!-- demo root element -->
+<div id="pokeapp">
+    <!-- passing through data -->
+    <demo-grid
+            :data="gridData"
+            :columns="gridColumns">
+    </demo-grid>
+</div>
+
+<form id="demo">
+    <!-- Use the component -->
+    <svg width="900" height="900">
+        <polygraph :stats="stats"></polygraph>
+    </svg>
+</form>
+
