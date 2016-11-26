@@ -132,15 +132,10 @@ var pokeapp = new Vue({
         selected: [
             { text: 'Bulbasaur'},
             { text: 'Charmander'},
-            { text: 'Squirtle'}]
-    }
-})
-
-// bootstrap the demo
-new Vue({
-    el: '#demo',
-    data: {
+            { text: 'Squirtle'}],
         newLabel: '',
         stats: stats
     }
 })
+
+// bootstrap the demo
