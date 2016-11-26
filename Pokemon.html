@@ -1,4 +1,4 @@
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="vue.js"></script>
 <script src="Pokemon.js" defer></script>
 <link rel="stylesheet" type="text/css" href="Pokemon.css">
 <link rel="stylesheet" type="text/css" href="graph.css">
@@ -7,22 +7,20 @@
 <script type="text/x-template" id="grid-template">
     <table>
         <thead>
-        <tr>
-            <th v-for="key in columns"
-                @click="sortBy(key)"
-                :class="{ active: sortKey == key }">
-                {{ key | capitalize }}
-                <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+            <tr>
+                <th v-for="key in columns" @click="sortBy(key)" :class="{ active: sortKey == key }">
+                    {{ key | capitalize }}
+                    <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
           </span>
-            </th>
-        </tr>
+                </th>
+            </tr>
         </thead>
         <tbody>
-        <tr v-for="entry in filteredData">
-            <td v-for="key in columns">
-                {{entry[key]}}
-            </td>
-        </tr>
+            <tr v-for="entry in filteredData">
+                <td v-for="key in columns">
+                    {{entry[key]}}
+                </td>
+            </tr>
         </tbody>
         <select v-model="selected" multiple>
             <option>Bulbasaur</option>
@@ -39,11 +37,7 @@
     <g>
         <polygon :points="points"></polygon>
         <circle cx="100" cy="100" r="80"></circle>
-        <axis-label
-                v-for="(stat, index) in stats"
-                :stat="stat"
-                :index="index"
-                :total="stats.length">
+        <axis-label v-for="(stat, index) in stats" :stat="stat" :index="index" :total="stats.length">
         </axis-label>
     </g>
 
@@ -56,9 +50,7 @@
 <!-- demo root element -->
 <div id="pokeapp">
     <!-- passing through data -->
-    <demo-grid
-            :data="gridData"
-            :columns="gridColumns">
+    <demo-grid :data="gridData" :columns="gridColumns">
     </demo-grid>
 </div>
 
@@ -68,4 +60,3 @@
         <polygraph :stats="stats"></polygraph>
     </svg>
 </form>
-
