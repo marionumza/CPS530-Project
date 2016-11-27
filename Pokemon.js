@@ -80,6 +80,7 @@ Vue.component('polygraph', {
                 return point.x + ',' + point.y
             }).join(' ')
         }
+        
     },
     components: {
         // a sub component for the labels
@@ -132,10 +133,10 @@ var pokeapp = new Vue({
         selected: [
             { text: 'Bulbasaur'},
             { text: 'Charmander'},
-            { text: 'Squirtle'}],
+            { text: 'Squirtle'}
+          ],
+
         newLabel: '',
         stats: stats
     }
 })
-
-// bootstrap the demo
