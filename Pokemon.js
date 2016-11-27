@@ -131,11 +131,6 @@ function valueToPoint(value, index, total) {
 
 Vue.component('labeledprogress', {
     props: ['label'],
-    data: function(){
-      return{
-        val: 0
-      };
-    },
     template: '#labledProgress-template'
 });
 
@@ -152,7 +147,8 @@ var pokeapp = new Vue({
             defense: "49",
             spAtk: "65",
             spDef: "65",
-            speed: "45"
+            speed: "45",
+            pic: "./pictures/bulbasaur.png"
         }, {
             name: 'Charmander',
             type: "Fire",
@@ -161,7 +157,8 @@ var pokeapp = new Vue({
             defense: "43",
             spAtk: "60",
             spDef: "50",
-            speed: "65"
+            speed: "65",
+            pic: "./pictures/charmander.png"
         }, {
             name: 'Squirtle',
             type: "Water",
@@ -170,7 +167,8 @@ var pokeapp = new Vue({
             defense: "65",
             spAtk: "50",
             spDef: "64",
-            speed: "43"
+            speed: "43",
+            pic: "./pictures/squirtle.png"
         }, {
             name: 'Pikachu',
             type: "Electric",
@@ -179,31 +177,25 @@ var pokeapp = new Vue({
             defense: "40",
             spAtk: "55",
             spDef: "55",
-            speed: "90"
-        }, ],
-        selected: [{
-            text: 'Bulbasaur'
-        }, {
-            text: 'Charmander'
-        }, {
-            text: 'Squirtle'
-        }],
-
+            speed: "90",
+            pic: "./pictures/pikachu.png"
+        } ],
         newLabel: '',
-        stats: stats
+        stats: stats,
+        image: ''
 
     },
 
     methods: {
         selectPokemon: function(pokemon) {
-            // alert(pokemon.name)
+            image = pokemon.pic;
+
             stats[0].value = pokemon.hp;
             stats[1].value = pokemon.attack;
             stats[2].value = pokemon.defense;
             stats[3].value = pokemon.spAtk;
             stats[4].value = pokemon.spDef;
             stats[5].value = pokemon.speed;
-
         }
     }
 });
