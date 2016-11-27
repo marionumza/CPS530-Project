@@ -1,0 +1,54 @@
+<script src="vue.js"></script>
+<script src="drag.js" defer></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/x-template" id="header-view-template">
+    <div class="draggable-header-view" @mousedown="startDrag" @touchstart="startDrag" @mousemove="onDrag" @touchmove="onDrag" @mouseup="stopDrag" @touchend="stopDrag" @mouseleave="stopDrag">
+        <svg class="bg" width="730" height="560">
+            <path :d="headerPath" fill="#42b983"></path>
+        </svg>
+        <div class="header">
+            <slot name="header"></slot>
+        </div>
+        <div class="content" :style="contentPosition">
+            <slot name="content"></slot>
+        </div>
+    </div>
+</script>
+<div id="app" @touchmove.prevent>
+    <draggable-header-view>
+        <template slot="header">
+			<h1>Vue.js</h1>
+			<span><a href="framework.html">Framework</a> - 
+			<a href="install.html">Installation</a> - 
+			Tutorial - Content - 
+			<a href="conclusion.html">Conclusion</a> - 
+			<a href="credits.html">Credits</a></span>
+        </template>
+        <template slot="content">
+            <h1>Credits</h1>
+			<br>
+			
+			<table border="0" style="text-align:center">
+				<tr>
+					<td><h4>Benjamin Verna-Asals</h4></td>
+					<td><h4>Clark Yin</h4></td>
+					<td><h4>Neil Santos</h4></td>
+					<td><h4>Sammy Guergachi</h4></td>
+				</tr>
+				<tr>
+					<td><img class="headshot" hspace="30" src="headshots/ben.jpg"></td>
+					<td><img class="headshot" hspace="30" src="headshots/clark.jpg"></td>
+					<td><img class="headshot" hspace="30" src="headshots/nj.jpg"></td>
+					<td><img class="headshot" hspace="30" src="headshots/sammy.jpg"></td>
+				</tr>
+				<tr>
+					<td>Framework, Conclusion, Credits</td>
+					<td>Tutorial, Content</td>
+					<td>Installation</td>
+					<td>Content</td>
+				</tr>
+			</table>
+			
+        </template>
+    </draggable-header-view>
+</div>
