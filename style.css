@@ -109,3 +109,8 @@ a {
     margin-left: 10px;
     font-size: 12px;
 }
+
+.draggable-header-view .content .headshot {
+	text-align: center;
+	border-radius: 50%;
+}
