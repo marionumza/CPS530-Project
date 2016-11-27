@@ -129,6 +129,16 @@ function valueToPoint(value, index, total) {
     }
 }
 
+Vue.component('labeledprogress', {
+    props: ['label'],
+    data: function(){
+      return{
+        val: 0
+      };
+    },
+    template: '#labledProgress-template'
+});
+
 // bootstrap the app
 var pokeapp = new Vue({
     el: '#pokeapp',
@@ -181,11 +191,12 @@ var pokeapp = new Vue({
 
         newLabel: '',
         stats: stats
+
     },
 
     methods: {
         selectPokemon: function(pokemon) {
-          // alert(pokemon.name)
+            // alert(pokemon.name)
             stats[0].value = pokemon.hp;
             stats[1].value = pokemon.attack;
             stats[2].value = pokemon.defense;

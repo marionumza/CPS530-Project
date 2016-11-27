@@ -38,17 +38,23 @@
 
     </template>
 
+    <template id="labledProgress-template">
+      <p>{{label}}
+      <progress max="100" v-bind:value="label" ></progress>
+      </p>
+    </template>
+
     <!-- passing through data -->
     <demo-grid :data="pokemons" :columns="gridColumns"> </demo-grid>
 
     <!-- Use the component -->
-        <svg width="300" height="300">
+    <svg width="300" height="300">
           <polygraph :stats="stats"></polygraph>
         </svg>
 
 
     <button v-for="pokemon in pokemons" @click="selectPokemon(pokemon)">{{pokemon.name}}</button>
-
+    <labeledprogress v-for="stat in stats" :label="stat.value" :value=stat.value></progress>
 </div>
 
 <!-- template for the axis label component. Only works in script because of <text> -->
