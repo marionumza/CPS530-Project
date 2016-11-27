@@ -39,17 +39,19 @@
     </template>
 
     <!-- passing through data -->
-    <demo-grid :data="gridData" :columns="gridColumns"> </demo-grid>
+    <demo-grid :data="pokemons" :columns="gridColumns"> </demo-grid>
 
     <!-- Use the component -->
-    <form>
-    <svg width="900" height="900">
-        <polygraph :stats="stats"></polygraph>
-    </svg>
-    </form>
+        <svg width="300" height="300">
+          <polygraph :stats="stats"></polygraph>
+        </svg>
+
+
+    <button v-for="pokemon in pokemons" @select>{{pokemon.name}}</button>
+
 </div>
 
-  <!-- template for the axis label component. Only works in script because of <text> -->
+<!-- template for the axis label component. Only works in script because of <text> -->
 <script type="text/x-template" id="axis-label-template">
-  <text :x="point.x" :y="point.y">{{stat.label}}</text>
+    <text :x="point.x" :y="point.y">{{stat.label}}</text>
 </script>
