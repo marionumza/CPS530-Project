@@ -140,8 +140,8 @@ var pokeapp = new Vue({
             hp: "45",
             attack: "49",
             defense: "49",
-            'sp.Atk': "65",
-            'sp.Def': "65",
+            spAtk: "65",
+            spDef: "65",
             speed: "45"
         }, {
             name: 'Charmander',
@@ -149,8 +149,8 @@ var pokeapp = new Vue({
             hp: "39",
             attack: "52",
             defense: "43",
-            'sp.Atk': "60",
-            'sp.Def': "50",
+            spAtk: "60",
+            spDef: "50",
             speed: "65"
         }, {
             name: 'Squirtle',
@@ -158,8 +158,8 @@ var pokeapp = new Vue({
             hp: "44",
             attack: "48",
             defense: "65",
-            'sp.Atk': "50",
-            'sp.Def': "64",
+            spAtk: "50",
+            spDef: "64",
             speed: "43"
         }, {
             name: 'Pikachu',
@@ -167,8 +167,8 @@ var pokeapp = new Vue({
             hp: "35",
             attack: "55",
             defense: "40",
-            'sp.Atk': "55",
-            'sp.Def': "55",
+            spAtk: "55",
+            spDef: "55",
             speed: "90"
         }, ],
         selected: [{
@@ -181,5 +181,18 @@ var pokeapp = new Vue({
 
         newLabel: '',
         stats: stats
+    },
+
+    methods: {
+        selectPokemon: function(pokemon) {
+          // alert(pokemon.name)
+            stats[0].value = pokemon.hp;
+            stats[1].value = pokemon.attack;
+            stats[2].value = pokemon.defense;
+            stats[3].value = pokemon.spAtk;
+            stats[4].value = pokemon.spDef;
+            stats[5].value = pokemon.speed;
+
+        }
     }
-})
+});

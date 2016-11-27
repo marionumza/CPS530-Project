@@ -47,7 +47,7 @@
         </svg>
 
 
-    <button v-for="pokemon in pokemons" @select>{{pokemon.name}}</button>
+    <button v-for="pokemon in pokemons" @click="selectPokemon(pokemon)">{{pokemon.name}}</button>
 
 </div>
 
