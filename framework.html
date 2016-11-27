@@ -1,0 +1,63 @@
+<script src="vue.js"></script>
+<script src="drag.js" defer></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/x-template" id="header-view-template">
+    <div class="draggable-header-view" @mousedown="startDrag" @touchstart="startDrag" @mousemove="onDrag" @touchmove="onDrag" @mouseup="stopDrag" @touchend="stopDrag" @mouseleave="stopDrag">
+        <svg class="bg" width="730" height="560">
+            <path :d="headerPath" fill="#42b983"></path>
+        </svg>
+        <div class="header">
+            <slot name="header"></slot>
+        </div>
+        <div class="content" :style="contentPosition">
+            <slot name="content"></slot>
+        </div>
+    </div>
+</script>
+<div id="app" @touchmove.prevent>
+    <draggable-header-view>
+        <template slot="header">
+			<h1>Vue.js</h1>
+			<span>
+			<a href="framework.html">Framework</a> - 
+			<a href="install.html">Installation</a> - 
+			Tutorial - Content - Conclusion - Credits</span>
+        </template>
+        <template slot="content">
+            <h1>Framework</h1>
+            <p>Vue.js is an ongoing open source development started in 2013 by Evan You. Vue is a simple and flexible JavaScript framework for creating interactive interfaces for the web. The framework is in its infancy stage, its use still being fairly niche, but is gaining popularity quickly. Provided with excellent documentation, a strong community, supporting cast of libraries and plugins, and a short feedback loop based on users are the reasons Vue is easy to learn, helpful for users solve problems, and remains relevant. Vue provides components that are data-reactive, being able to update in real-time. The type of websites the framework is useful for are large websites that can utilize the power of templates, as it is an easy way to present different data in the same way across a site. However, because of its simplicity it can be used for smaller scale projects.</p>
+            
+			<h2>Core Features:</h2>
+			
+			<ul>
+				<li>Declarative rendering with a plain JavaScript object based reactivity system</li>
+				<li>Component-oriented development style with tooling support</li>
+				<li>Learn and extensible core</li>
+				<li>Flexible transition effect system</li>
+				<li>Fast without the need for complex optimization</li>
+			</ul>
+			
+			<h2>Strengths:</h2>
+			
+			<ul>
+				<li>Easy learning curve</li>
+				<li>Simplicity</li>
+				<li>Flexibility</li>
+				<li>Update & render performance</li>
+				<li>Use of a virtual DOM</li>
+				<li>Real-time updates</li>
+				<li>Template system</li>
+				<li>Component scoped CSS</li>
+			</ul>
+			
+			<h2>Weaknesses:</h2>
+			
+			<ul>
+				<li>Doesn’t support older browsers</li>
+				<li>Smaller community, may not have question answered</li>
+				<li>Does not contain all tools out of box, install plugins</li>
+
+			</ul>
+        </template>
+    </draggable-header-view>
+</div>
