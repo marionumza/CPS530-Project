@@ -1,0 +1,63 @@
+<script src="vue.js"></script>
+<script src="drag.js" defer></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/x-template" id="header-view-template">
+    <div class="draggable-header-view" @mousedown="startDrag" @touchstart="startDrag" @mousemove="onDrag" @touchmove="onDrag" @mouseup="stopDrag" @touchend="stopDrag" @mouseleave="stopDrag">
+        <svg class="bg" width="730" height="560">
+            <path :d="headerPath" fill="#42b983"></path>
+        </svg>
+        <div class="header">
+            <slot name="header"></slot>
+        </div>
+        <div class="content" :style="contentPosition">
+            <slot name="content"></slot>
+        </div>
+    </div>
+</script>
+<div id="app" @touchmove.prevent>
+    <draggable-header-view>
+        <template slot="header">
+			<h1>Vue.js</h1>
+			<span>
+			<a href="framework.html">Framework</a> -
+			<a href="install.html">Installation</a> -
+      <a href="tutorial.html">Installation</a> -
+      Content - Conclusion - Credits</span>
+        </template>
+        <template slot="content">
+            <h1>Tutorial</h1>
+			<br>
+            <h2>Getting Started</h3>
+            <p>To start implementation of the Pokedex we would have to think about what templates will be used if you are thinking about using it multiple times in the future. We know that we need to create a pokeapp grid based template to store all the data being inserted. So, it is beneficial to program the html template first to get an understanding of the layout. </p>
+            <img src="get1.png" alt="Pokeapp Grid Template" style="width:730px;height:310px;">
+            <p>NPM is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as Webpack or Browserify. Vue also provides accompanying tools for authoring Single File Components.</p>
+            <div class="html-code2">
+                <p>$ npm install vue</p>
+            </div>
+            <h2>CLI</h2>
+            <p>Vue.js provides an official CLI for quickly scaffolding ambitious Single Page Applications. It provides batteries-included build setups for a modern frontend workflow. It takes only a few minutes to get up and running with hot-reload, lint-on-save, and production-ready builds:</p>
+            <div class="html-code3">
+                <p style="color:#6a6b6a;">#install vue-cli</p>
+                <p style="line-height: 0.1px;">$ npm install --global vue-cli</p>
+                <p style="color:#6a6b6a;, line-height: 0.1px;">#create a new project using the "webpack" template</p>
+                <p style="line-height: 0.1px;">$ vue init webpack my-project</p>
+                <p style="color:#6a6b6a;, line-height: 0.1px;"># install dependencies and go!</p>
+                <p style="line-height: 10px;">$ cd my-project</p>
+                <p style="line-height: 10px;">$ npm install</p>
+                <p style="line-height: 10px;">$ npm run dev</p>
+            </div>
+            <h2>Dev Build</h2>
+            <p>Important: the built files in GitHub&#39;s /dist folder are only checked-in during releases. To use Vue from the latest source code on GitHub, you will have to build it yourself!</p>
+            <div class="html-code4">
+                <p style="line-height: 10px;"> git clone https://github.com/vuejs/vue.git node_modules/vue </p>
+                <p style="line-height: 10px;"> cd node_modules/vue </p>
+                <p style="line-height: 10px;"> npm install </p>
+                <p style="line-height: 10px;"> npm run build </p>
+            </div>
+            <h2>Bower</h2>
+            <div class="html-code5">
+                <p>$ bower install vue</p>
+            </div>
+        </template>
+    </draggable-header-view>
+</div>
