@@ -11,8 +11,8 @@
         <table>
             <thead>
                 <tr>
-                    <th v-for="stat in columns" @click="sortBy(key)" :class="{ active: sortKey == key }">
-                        {{ stat | capitalize }}
+                    <th v-for="key in columns" @click="sortBy(key)" :class="{ active: sortKey == key }">
+                        {{ key | capitalize }}
                         <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
                     </th>
                 </tr>
@@ -26,7 +26,9 @@
             </tbody>
         </table>
     </template>
-    
+    <!-- passing through data -->
+    <demo-grid :data="pokemons" :columns="gridColumns">
+    </demo-grid>
 
     <!-- polygraph template -->
     <template id="polygraph-template">
@@ -51,7 +53,7 @@
 
     <image :src="image" height="350" width="350"></image>
 
-    <button v-for="pokemon in pokemons" @click="selectPokemon(pokemon); image=pokemon.pic " >{{pokemon.name}}</button>
+    <button v-for="pokemon in pokemons" @click="selectPokemon(pokemon); image=pokemon.pic" >{{pokemon.name}}</button>
 
 
         <!-- Use the component -->
