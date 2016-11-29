@@ -1,3 +1,5 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto'
+
 h1 {
   font-weight: 300;
   font-size: 1.8em;
@@ -45,11 +47,11 @@ a {
 }
 
 .draggable-header-view .content p {
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .draggable-header-view .content li {
-    font-size: 13px;
+    font-size: 15px;
 }
 .draggable-header-view .content .html-code1 {
     margin: 20px 20px;
@@ -111,6 +113,108 @@ a {
 }
 
 .draggable-header-view .content .headshot {
-	text-align: center;
-	border-radius: 50%;
+  text-align: center;
+  border-radius: 50%;
+}
+
+/*table {
+    border: 2px solid #42b983;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+th {
+    background-color: #42b983;
+    color: rgba(255,255,255,0.66);
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+th, td {
+    min-width: 120px;
+    padding: 10px 20px;
+}
+
+th.active {
+    color: #fff;
+}
+
+th.active .arrow {
+    opacity: 1;
+}*/
+
+.arrow {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+    opacity: 0.66;
+}
+
+.arrow.asc {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid #fff;
+}
+
+.arrow.dsc {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #fff;
+}
+polygon {
+    fill: #42b983;
+    opacity: .75;
+}
+
+circle {
+    fill: transparent;
+    stroke: #999;
+}
+
+text {
+    font-family: Helvetica Neue, Arial, sans-serif;
+    font-size: 10px;
+    fill: #666;
+}
+
+label {
+    display: inline-block;
+    margin-left: 10px;
+    width: 20px;
+}
+
+.button {
+    background-color: #42b983;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.picture {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stats {
+
 }

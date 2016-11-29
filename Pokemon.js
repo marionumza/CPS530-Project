@@ -138,7 +138,7 @@ Vue.component('labeledprogress', {
 var pokeapp = new Vue({
     el: '#pokeapp',
     data: {
-        gridColumns: ['name', 'type', 'hp', 'attack', 'defense', 'spAtk', 'spDef', 'speed'],
+        gridColumns: ['name', 'type', 'hp', 'attack', 'defense', 'sp.Atk', 'sp.Def', 'speed'],
         pokemons: [{
             name: 'Bulbasaur',
             type: "Grass \\ Poison",
