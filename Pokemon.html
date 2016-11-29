@@ -1,6 +1,5 @@
 <script src="vue.js"></script>
 <script src="drag.js" defer></script>
-<script src="Pokemon.js" defer></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <!-- BEGIN -->
@@ -17,82 +16,75 @@
         </div>
     </div>
 </script>
-<!-- END -->
 
-<!-- BEGIN -->
 <div id="app" @touchmove.prevent>
     <draggable-header-view>
         <template slot="header">
-            <h1>Vue.js</h1>
+            <h1>Vue.js - Content</h1>
             <span>
-            <a href="framework.html">Framework</a> -
-            <a href="install.html">Installation</a> -
-            <a href="tutorial.html">Tutorial</a> -
-            <a href="Pokemon.html">Content</a> - 
-            <a href="conclusion.html">Conclusion</a> - 
-            <a href="credits.html">Credits</a>
+	            <a href="framework.html">Framework</a> -
+	            <a href="install.html">Installation</a> -
+	            <a href="tutorial.html">Tutorial</a> -
+	            <a href="Pokemon.html">Content</a> - 
+	            <a href="conclusion.html">Conclusion</a> - 
+	            <a href="credits.html">Credits</a>
             </span>
         </template>
         <template slot="content">
-            <h1>Content</h1>
-<!-- END -->
 
+        	<br>
+            <div class="buttons">
+	        	<button class="button" v-for="pokemon in pokemons" @click="selectPokemon(pokemon); image=pokemon.pic">{{pokemon.name}}</button>
+        	</div>
+        	<! -- " -->
 
-            <!-- demo root element -->
-            <div id="pokeapp">
-                <!-- grid template -->
-                <template id="grid-template">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th v-for="key in columns" @click="sortBy(key)" :class="{ active: sortKey == key }">
-                                    {{ key | capitalize }}
-                                    <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="entry in filteredData">
-                                <td v-for="key in columns">
-                                    {{entry[key]}}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </template>
+            <!-- grid template -->
+            <template id="grid-template">
+                <table>
+                    <thead>
+                        <tr>
+                            <th v-for="key in columns" @click="sortBy(key)" :class="{ active: sortKey == key }">
+                                {{ key | capitalize }}
+                                <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="entry in filteredData">
+                            <td v-for="key in columns">
+                                {{entry[key]}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </template>
 
-                <!-- polygraph template -->
-                <template id="polygraph-template">
-                    <g>
-                        <polygon :points="points"></polygon>
-                        <circle cx="100" cy="100" r="80"></circle>
-                        <axis-label v-for="(stat, index) in stats" :stat="stat" :index="index" :total="stats.length">
-                        </axis-label>
-                    </g>
+            <!-- polygraph template -->
+            <template id="polygraph-template">
+                <g>
+                    <polygon :points="points"></polygon>
+                    <circle cx="100" cy="100" r="80"></circle>
+                    <axis-label v-for="(stat, index) in stats" :stat="stat" :index="index" :total="stats.length">
+                    </axis-label>
+                </g>
 
-                </template>
+            </template>
 
-                <!-- passing through data -->
-                <!-- <demo-grid :data="pokemons" :columns="gridColumns"> </demo-grid> -->
+            <!-- passing through data -->
+            <demo-grid :data="pokemons" :columns="gridColumns"> </demo-grid>
 
-                <!-- Use the component -->
-                <svg width="300" height="300">
-                      <polygraph :stats="stats"></polygraph>
-                    </svg>
+            <!-- Use the component -->
+            <svg width="300" height="300">
+                  <polygraph :stats="stats"></polygraph>
+            </svg>
 
-                <p v-for="stat in stats"> {{stat.label}}: {{stat.value}} </p>
-                <image :src="image"></image>
+            <!-- <p class="stats" v-for="stat in stats"> {{stat.label}}: {{stat.value}} </p> -->
+            <br>
+            <image class="picture" :src="image"></image>
 
-                <button v-for="pokemon in pokemons" @click="selectPokemon(pokemon); image=pokemon.pic">{{pokemon.name}}</button>
-
-            </div>
-
-
-<!-- BEGIN -->
-        </template>
+         </template>
     </draggable-header-view>
 </div>
-<!-- END -->
 
 
 <!-- template for the axis label component. Only works in script because of <text> -->
