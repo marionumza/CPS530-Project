@@ -1,4 +1,5 @@
 <script src="vue.js"></script>
+<script src="dynamics.js" defer></script>
 <script src="drag.js" defer></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -17,28 +18,27 @@
     </div>
 </script>
 
-<script type="text/x-template" id="grid-template">
-    <table>
-        <thead>
-        <tr>
-            <th v-for="key in columns" @click="sortBy(key)" :class="{ active: sortKey == key }">
-                {{ key | capitalize }}
-                <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="entry in filteredData">
-            <td v-for="key in columns">
-                {{entry[key]}}
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</script>
-
-
-
+<div class="stats">
+    <script type="text/x-template" id="grid-template">
+        <table>
+            <thead>
+            <tr>
+                <th v-for="key in columns" @click="sortBy(key)" :class="{ active: sortKey == key }">
+                    {{ key | capitalize }}
+                    <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="entry in filteredData">
+                <td v-for="key in columns">
+                    {{entry[key]}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </script>
+</div>
 
 <div id="app" @touchmove.prevent>
     <draggable-header-view>
@@ -61,23 +61,19 @@
         	</div>
         	<! -- " -->
             <br>
+            
+            <div class="graph">
+                <svg width="300" height="300">
+                    <polygraph :stats="stats"></polygraph>
+                </svg>
+            </div>
+
             <image class="picture" :src="image"></image>
 
-            <svg width="300" height="300">
-                <polygraph :stats="stats"></polygraph>
-            </svg>
-
-            <p v-for="stat in stats"> {{stat.label}}: {{stat.value}} </p>
-
-            <!-- <p class="stats" v-for="stat in stats"> {{stat.label}}: {{stat.value}} </p> -->
-
+            <!-- <p v-for="stat in stats"> {{stat.label}}: {{stat.value}} </p> -->
 
             <!-- passing through data -->
-            <demo-grid :data="pokemons" :columns="gridColumns">
-            </demo-grid>
-
-
-
+            <demo-grid :data="pokemons" :columns="gridColumns"></demo-grid>
         </template>
     </draggable-header-view>
 </div>

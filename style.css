@@ -1,49 +1,49 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto'
 
 h1 {
-  font-weight: 300;
-  font-size: 1.8em;
-  margin-top: 0;
+    font-weight: 300;
+    font-size: 1.8em;
+    margin-top: 0;
 }
 a {
-  color: #fff;
+    color: #fff;
 }
 .draggable-header-view {
-  background-color: #fff;
-  box-shadow: 0 4px 16px rgba(0,0,0,.15);
-  width: 730px;
-  height: 1460px;
-  overflow: hidden;
-  margin: 30px auto;
-  position: relative;
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 300;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    background-color: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,.15);
+    width: 730px;
+    height: 1460px;
+    overflow: hidden;
+    margin: 30px auto;
+    position: relative;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .draggable-header-view .bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 .draggable-header-view .header, .draggable-header-view .content {
-  position: relative;
-  z-index: 1;
-  padding: 30px;
-  box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+    box-sizing: border-box;
 }
 .draggable-header-view .header {
-  height: 160px;
-  text-align: center
+    height: 160px;
+    text-align: center;
 }
 .draggable-header-view .content {
-  color: #333;
-  line-height: 1.5em;
+    color: #333;
+    line-height: 1.5em;
 }
 
 .draggable-header-view .content p {
@@ -112,17 +112,6 @@ a {
     font-size: 12px;
 }
 
-.draggable-header-view .content .headshot {
-  text-align: center;
-  border-radius: 50%;
-}
-
-table {
-    border: 2px solid #42b983;
-    border-radius: 3px;
-    background-color: #fff;
-}
-
 th {
     background-color: #42b983;
     color: rgba(255,255,255,0.66);
@@ -133,13 +122,13 @@ th {
     user-select: none;
 }
 
-td {
-    background-color: #f9f9f9;
+th, td .stats {
+    font-size: 12px;
+    padding: 10px 20px;
 }
 
-th, td {
-    min-width: 120px;
-    padding: 10px 20px;
+td {
+    text-align: center;
 }
 
 th.active {
@@ -209,12 +198,20 @@ label {
     text-align: center;
 }
 
-.picture {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.graph {
+    position: relative;
+    margin-left: 115px;
+    margin-top: 50px;
 }
 
-.stats {
+.headshot {
+    border-radius: 50%;
+}
 
+.picture {
+    opacity: .75;
+    position: absolute;
+    top: 200px;
+    left: 400px;
+    width: 160px;
 }
