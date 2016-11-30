@@ -1,3 +1,4 @@
+// Drag animation
 Vue.component('draggable-header-view', {
   template: '#header-view-template',
   data: function () {
@@ -55,6 +56,8 @@ Vue.component('draggable-header-view', {
     }
   }
 })
+
+// Pokemon component
 
 // register the grid component
 Vue.component('demo-grid', {
