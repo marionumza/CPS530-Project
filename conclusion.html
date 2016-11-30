@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <script type="text/x-template" id="header-view-template">
     <div class="draggable-header-view" @mousedown="startDrag" @touchstart="startDrag" @mousemove="onDrag" @touchmove="onDrag" @mouseup="stopDrag" @touchend="stopDrag" @mouseleave="stopDrag">
-        <svg class="bg" width="730" height="560">
+        <svg class="bg" width="auto" height="560">
             <path :d="headerPath" fill="#42b983"></path>
         </svg>
         <div class="header">
@@ -23,15 +23,15 @@
             <a href="framework.html">Framework</a> -
             <a href="install.html">Installation</a> -
             <a href="tutorial.html">Tutorial</a> -
-            <a href="Pokemon.html">Content</a> - 
-            <a href="conclusion.html">Conclusion</a> - 
+            <a href="Pokemon.html">Content</a> -
+            <a href="conclusion.html"><em>Conclusion</em></a> -
             <a href="credits.html">Credits</a>
             </span>
         </template>
         <template slot="content">
             <p>If we were to rate our experience with Vue.js, we would give it an 8/10. Reason being that the concepts are relatively new, and you are constantly learning new things. However, without an understanding of JavaScript, Vue.js can be quite difficult for the same reason. After having read the API, the framework performed as intended, with the obvious difficulties of syntax. Vue.js was not difficult to install as there are several ways to install depending on your development environment. Creating a page came with some difficulty, as there always is when learning a new framework, and in comparison to HTML/CSS, there is quite a bit more of a learning curve. That being said, it was a good learning experience for all, especially for those that had not delved into JavaScript before. We felt it would have been interesting to do a project using multiple frameworks, for exmaple AngularJS and Vue.js, creating a comparison between the two.</p>
-            
-			
+
+
         </template>
     </draggable-header-view>
 </div>

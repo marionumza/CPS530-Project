@@ -12,7 +12,7 @@ Vue.component('draggable-header-view', {
   },
   computed: {
     headerPath: function () {
-      return 'M0,0 L730,0 730,160' +
+      return 'M0,0 L2000,0 2000,160' +
         'Q' + this.c.x + ',' + this.c.y +
         ' 0,160'
     },

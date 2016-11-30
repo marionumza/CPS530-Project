@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <script type="text/x-template" id="header-view-template">
     <div class="draggable-header-view" @mousedown="startDrag" @touchstart="startDrag" @mousemove="onDrag" @touchmove="onDrag" @mouseup="stopDrag" @touchend="stopDrag" @mouseleave="stopDrag">
-        <svg class="bg" width="730" height="560">
+        <svg class="bg" width="auto" height="560">
             <path :d="headerPath" fill="#42b983"></path>
         </svg>
         <div class="header">
@@ -22,9 +22,9 @@
 			<span>
 			<a href="framework.html">Framework</a> -
 			<a href="install.html">Installation</a> -
-            <a href="tutorial.html">Tutorial</a> -
-            <a href="Pokemon.html">Content</a> - 
-            <a href="conclusion.html">Conclusion</a> - 
+            <a href="tutorial.html"><em>Tutorial</em></a> -
+            <a href="Pokemon.html">Content</a> -
+            <a href="conclusion.html">Conclusion</a> -
             <a href="credits.html">Credits</a>
             </span>
         </template>

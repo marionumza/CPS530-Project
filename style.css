@@ -11,8 +11,8 @@ a {
 .draggable-header-view {
     background-color: #fff;
     box-shadow: 0 4px 16px rgba(0,0,0,.15);
-    width: 730px;
-    height: 1460px;
+    width: 90%;
+    height: auto;
     overflow: hidden;
     margin: 30px auto;
     position: relative;
