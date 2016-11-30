@@ -60,7 +60,8 @@
 	        	<button class="button" v-for="pokemon in pokemons" @click="selectPokemon(pokemon); image=pokemon.pic">{{pokemon.name}}</button>
         	</div>
         	<! -- " -->
-
+            <br>
+            <image class="picture" :src="image"></image>
 
             <svg width="300" height="300">
                 <polygraph :stats="stats"></polygraph>
@@ -69,8 +70,7 @@
             <p v-for="stat in stats"> {{stat.label}}: {{stat.value}} </p>
 
             <!-- <p class="stats" v-for="stat in stats"> {{stat.label}}: {{stat.value}} </p> -->
-            <br>
-            <image class="picture" :src="image"></image>
+
 
             <!-- passing through data -->
             <demo-grid :data="pokemons" :columns="gridColumns">
