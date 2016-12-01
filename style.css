@@ -8,7 +8,9 @@ a {
     color: #fff;
 }
 
-
+body {
+	min-width: 920px;
+}
 
 .draggable-header-view {
     background-color: #fff;
@@ -241,6 +243,14 @@ label {
 
 .headshot {
     border-radius: 50%;
+}
+
+.center {
+	text-align: center;
+}
+
+table.center {
+	width: 100%;
 }
 
 .picture {
