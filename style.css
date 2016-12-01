@@ -204,6 +204,10 @@ label {
 
 .headshot {
     border-radius: 50%;
+    height: 200px;
+    width: auto;
+    margin: 0;
+    margin-right: 10px;
 }
 
 #table {
