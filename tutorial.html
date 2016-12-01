@@ -16,7 +16,7 @@
     </div>
 </script>
 <div id="app" @touchmove.prevent>
-    <draggable-header-view>
+    <draggable-header-view style="height:8000px;">
         <template slot="header">
 			<h1>Vue.js - Tutorial</h1>
 			<span>
@@ -38,10 +38,12 @@
             <img src="./pictures/get3.png" alt="Pokeapp Grid Template" style="width:770px;height:200px;">
             <p><b>This part takes the polygraph-template from the javascript file and for loops the axis label with the necessary information and outputs a dynamic circular SVG map. The axis-label-template is the template that will display the text of the SVG file dynamically.</b></p>
             <img src="./pictures/get4.png" alt="Pokeapp Grid Template" style="width:500px;height:900px;">
-            <p><b>This part takes the polygraph-template from the javascript file and for loops the axis label with the necessary information and outputs a dynamic circular SVG map. The axis-label-template is the template that will display the text of the SVG file dynamically.</b></p>
-
-
-            <h2>Draggable Header Tutorial</h2>
+            <p><b>This polygraph component (shown above) is the template for polygraph in the html and computes the polygon points when new data is entered into the stats. Axis-label component is a nested component that returns the value to the label of the axis on the SVG graph.</b></p>
+            <img src="./pictures/get5.png" alt="Pokeapp Grid Template" style="width:700px;height:800px;">
+            <p><b>The two templates display the buttons and pictures. The rest bootstrap the templates outside of the html and displays SVG graph size, Table and labels from the JavaScript written outside of the html.</b></p>
+            <img src="./pictures/get6.png" alt="Pokeapp Grid Template" style="width:700px;height:800px;">
+            <p><b>The code above has all the data for the grid it continues with more data that displays all the pokemon characters. The stats are also apparent in this Vue and it’s used to implement components.</b></p>
+                <h2>Draggable Header Tutorial</h2>
             <p>To implement the draggable header as seen on all of our pages we must make the following HTML, CSS, and JavaScript code. The following HTML code creates the template for the elastic header component to be used in the JavaScript file later. VueJS uses "Modifier Keys" to trigger mouse or keyboard events. The <i><code>@mouse</code></i> and <i><code>@touch</code> are example of VueJS modifier keys</i></p>
             <img src="./pictures/html-template.png" style="display:block; margin-left:auto; margin-right:auto;">
             <p>The following JavaScript code uses the previous template to animate the header. In the method section of the JavaScript file the variables for the modifier keys are programmed accordingly to animate and trigger the keys. </p>
