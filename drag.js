@@ -207,6 +207,16 @@ Vue.component('labeledprogress', {
     template: '#labledProgress-template'
 });
 
+Vue.component('poke-button', {
+    props: ['name', 'color'],
+    template: '#poke-button-template',
+    methods: {
+        select: function() {
+          this.$emit('click')
+        }
+    }
+});
+
 // bootstrap the app
 var pokeapp = new Vue({
     el: '#app',
@@ -222,7 +232,7 @@ var pokeapp = new Vue({
             spDef: "65",
             speed: "45",
             pic: "./pictures/bulbasaur.png",
-            color: "background-color: green"
+            color: "fill: green; background-color: green"
 
         }, {
             name: 'Charmander',
@@ -234,7 +244,7 @@ var pokeapp = new Vue({
             spDef: "50",
             speed: "65",
             pic: "./pictures/charmander.png",
-            color: "background-color: orange"
+            color: "fill:orange; background-color: orange"
         }, {
             name: 'Squirtle',
             type: "Water",
@@ -245,7 +255,7 @@ var pokeapp = new Vue({
             spDef: "64",
             speed: "43",
             pic: "./pictures/squirtle.png",
-            color: "background-color: lightblue"
+            color: "fill:lightblue; background-color: lightblue"
 
         }, {
             name: 'Pikachu',
@@ -257,7 +267,7 @@ var pokeapp = new Vue({
             spDef: "55",
             speed: "90",
             pic: "./pictures/pikachu.png",
-            color: "background-color: gold"
+            color: "fill:gold; background-color: gold"
         }],
         newLabel: '',
         stats: stats,
