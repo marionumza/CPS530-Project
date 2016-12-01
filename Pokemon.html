@@ -54,18 +54,27 @@
             </span>
         </template>
 
+        <template id="poke-button-template">
+          	<button class="button" :style="color" @click="select">{{name}}</button>
+        </template>
+
         <template slot="content">
-                	<br>
+            <br>
             <div class="buttons">
-	        	<button class="button" v-for="pokemon in pokemons" @click="selectPokemon(pokemon); image=pokemon.pic">{{pokemon.name}}</button>
+	        	<poke-button class="button"
+            :color="pokemon.color"
+             v-for="pokemon in pokemons"
+             v-on:click="selectPokemon(pokemon); image=pokemon.pic;"
+              :name="pokemon.name">
+          </poke-button>
         	</div>
-        	<! -- " -->
+
             <br>
 
           <div id="poke-item">
             <!-- <div class="graph"> -->
                 <svg class="graph" width="200" height="200">
-                    <polygraph :stats="stats" :style="stats[0].color"></polygraph>
+                    <polygraph :stats="stats"></polygraph>
                 </svg>
             <!-- </div> -->
             <image class="picture" :src="image"></image>
@@ -89,7 +98,7 @@
 
 <script type="text/x-template" id="polygraph-template">
     <g>
-        <polygon :points="points"></polygon>
+        <polygon :points="points" :style="stats[0].color"></polygon>
         <circle cx="100" cy="100" r="80"></circle>
         <axis-label v-for="(stat, index) in stats" :stat="stat" :index="index" :total="stats.length">
         </axis-label>
