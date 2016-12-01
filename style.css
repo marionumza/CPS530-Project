@@ -224,8 +224,6 @@ label {
     background-color: #42b983;
     color: white;
     text-align: left;
-    /*width: 30%;*/
-    /*margin-left: 30%;*/
     border-radius: 10px;
     font-size: 20;
     padding: 10px;
@@ -233,9 +231,12 @@ label {
     margin-bottom: 3px;
 }
 
+#stat-table-container{
+  width: 100%;
+}
+
 #poke-item {
-    display: block;
-    margin: auto;
+    display: inline-flex;
 }
 
 .headshot {

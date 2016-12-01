@@ -70,12 +70,14 @@
             <!-- </div> -->
             <image class="picture" :src="image"></image>
 
+            <div id="stat-table-container">
             <p id="stat-table" v-for="stat in stats">
               <span id="stat-item">
               <span id="stat-label">{{stat.label}}:</span>
               <span id="stat-value"> {{stat.value}} <span>
               </span>
-              </p>
+            </p>
+          </div>
           </div>
             <!-- passing through data -->
             <demo-grid :data="pokemons" :columns="gridColumns"></demo-grid>
