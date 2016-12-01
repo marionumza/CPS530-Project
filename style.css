@@ -1,16 +1,18 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto'
-
-h1 {
+@import 'https://fonts.googleapis.com/css?family=Roboto' h1 {
     font-weight: 300;
     font-size: 1.8em;
     margin-top: 0;
 }
+
 a {
     color: #fff;
 }
+
+
+
 .draggable-header-view {
     background-color: #fff;
-    box-shadow: 0 4px 16px rgba(0,0,0,.15);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
     width: 90%;
     height: auto;
     overflow: hidden;
@@ -25,22 +27,26 @@ a {
     -ms-user-select: none;
     user-select: none;
 }
+
 .draggable-header-view .bg {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 0;
 }
+
 .draggable-header-view .header, .draggable-header-view .content {
     position: relative;
     z-index: 1;
     padding: 30px;
     box-sizing: border-box;
 }
+
 .draggable-header-view .header {
     height: 160px;
     text-align: center;
 }
+
 .draggable-header-view .content {
     color: #333;
     line-height: 1.5em;
@@ -53,6 +59,7 @@ a {
 .draggable-header-view .content li {
     font-size: 15px;
 }
+
 .draggable-header-view .content .html-code1 {
     margin: 20px 20px;
     width: auto;
@@ -114,7 +121,7 @@ a {
 
 th {
     background-color: #42b983;
-    color: rgba(255,255,255,0.66);
+    color: rgba(255, 255, 255, 0.66);
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -159,6 +166,7 @@ th.active .arrow {
     border-right: 4px solid transparent;
     border-top: 4px solid #fff;
 }
+
 polygon {
     fill: #42b983;
     opacity: .75;
@@ -200,8 +208,34 @@ label {
 
 .graph {
     position: relative;
-    margin-left: 115px;
+    margin-left: 20%;
     margin-top: 50px;
+}
+
+#stat-label {
+    font-weight: bold;
+}
+
+#stat-item {
+    margin-left: 20%;
+}
+
+#stat-table {
+    background-color: #42b983;
+    color: white;
+    text-align: left;
+    /*width: 30%;*/
+    /*margin-left: 30%;*/
+    border-radius: 10px;
+    font-size: 20;
+    padding: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+#poke-item {
+    display: block;
+    margin: auto;
 }
 
 .headshot {
@@ -210,8 +244,7 @@ label {
 
 .picture {
     opacity: .75;
-    position: absolute;
-    top: 200px;
-    left: 400px;
     width: 160px;
+    height: auto;
+    margin: 40px;
 }

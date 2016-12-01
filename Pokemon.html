@@ -22,19 +22,19 @@
     <script type="text/x-template" id="grid-template">
         <table>
             <thead>
-            <tr>
-                <th v-for="key in columns" @click="sortBy(key)" :class="{ active: sortKey == key }">
-                    {{ key | capitalize }}
-                    <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
-                </th>
-            </tr>
+                <tr>
+                    <th v-for="key in columns" @click="sortBy(key)" :class="{ active: sortKey == key }">
+                        {{ key | capitalize }}
+                        <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
+                    </th>
+                </tr>
             </thead>
             <tbody>
-            <tr v-for="entry in filteredData">
-                <td v-for="key in columns">
-                    {{entry[key]}}
-                </td>
-            </tr>
+                <tr v-for="entry in filteredData">
+                    <td v-for="key in columns">
+                        {{entry[key]}}
+                    </td>
+                </tr>
             </tbody>
         </table>
     </script>
@@ -62,16 +62,21 @@
         	<! -- " -->
             <br>
 
-            <div class="graph">
-                <svg width="300" height="300">
+          <div id="poke-item">
+            <!-- <div class="graph"> -->
+                <svg class="graph" width="200" height="200">
                     <polygraph :stats="stats"></polygraph>
                 </svg>
-            </div>
-
+            <!-- </div> -->
             <image class="picture" :src="image"></image>
 
-            <!-- <p v-for="stat in stats"> {{stat.label}}: {{stat.value}} </p> -->
-
+            <p id="stat-table" v-for="stat in stats">
+              <span id="stat-item">
+              <span id="stat-label">{{stat.label}}:</span>
+              <span id="stat-value"> {{stat.value}} <span>
+              </span>
+              </p>
+          </div>
             <!-- passing through data -->
             <demo-grid :data="pokemons" :columns="gridColumns"></demo-grid>
         </template>
