@@ -20,7 +20,7 @@
 
 <div class="stats">
     <script type="text/x-template" id="grid-template">
-        <table>
+        <table align="center" style="margin: 0px auto;">
             <thead>
                 <tr>
                     <th v-for="key in columns" @click="sortBy(key)" :class="{ active: sortKey == key }">
@@ -53,9 +53,9 @@
 	            <a href="credits.html">Credits</a>
             </span>
         </template>
-        <template slot="content">
 
-        	<br>
+        <template slot="content">
+                	<br>
             <div class="buttons">
 	        	<button class="button" v-for="pokemon in pokemons" @click="selectPokemon(pokemon); image=pokemon.pic">{{pokemon.name}}</button>
         	</div>
@@ -65,13 +65,13 @@
           <div id="poke-item">
             <!-- <div class="graph"> -->
                 <svg class="graph" width="200" height="200">
-                    <polygraph :stats="stats"></polygraph>
+                    <polygraph :stats="stats" :style="stats[0].color"></polygraph>
                 </svg>
             <!-- </div> -->
             <image class="picture" :src="image"></image>
 
             <div id="stat-table-container">
-            <p id="stat-table" v-for="stat in stats">
+            <p id="stat-table" v-for="stat in stats" :style="stat.color">
               <span id="stat-item">
               <span id="stat-label">{{stat.label}}:</span>
               <span id="stat-value"> {{stat.value}} <span>
@@ -80,7 +80,9 @@
           </div>
           </div>
             <!-- passing through data -->
+            <div id="table">
             <demo-grid :data="pokemons" :columns="gridColumns"></demo-grid>
+          </div>
         </template>
     </draggable-header-view>
 </div>

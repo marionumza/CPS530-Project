@@ -8,7 +8,10 @@ a {
     color: #fff;
 }
 
-
+demo-grid {
+    margin: 0 auto;
+    width: 100%;
+}
 
 .draggable-header-view {
     background-color: #fff;
@@ -207,10 +210,14 @@ label {
 }
 
 .graph {
-    position: relative;
-    margin-left: 20%;
-    margin-top: 50px;
+    /*position: relative;*/
+    /*margin-left: 20%;*/
+    /*margin-top: 50px;*/
+      /*margin: 0px auto;*/
+      padding: 40px;
 }
+
+
 
 #stat-label {
     font-weight: bold;
@@ -231,21 +238,28 @@ label {
     margin-bottom: 3px;
 }
 
-#stat-table-container{
-  width: 100%;
+#stat-table-container {
+    width: 200px;
 }
 
 #poke-item {
     display: inline-flex;
+    width: 100%;
+    margin: 0px auto;
+    justify-content: center;
 }
 
 .headshot {
     border-radius: 50%;
 }
 
+#table {
+    margin-top: 50px;
+}
+
 .picture {
     opacity: .75;
-    width: 160px;
+    width: 200px;
     height: auto;
     margin: 40px;
 }

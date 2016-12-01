@@ -1,60 +1,66 @@
 // Drag animation
 Vue.component('draggable-header-view', {
-  template: '#header-view-template',
-  data: function () {
-    return {
-      dragging: false,
-      // quadratic bezier control point
-      c: { x: 160, y: 160 },
-      // record drag start point
-      start: { x: 0, y: 0 }
-    }
-  },
-  computed: {
-    headerPath: function () {
-      return 'M0,0 L2000,0 2000,160' +
-        'Q' + this.c.x + ',' + this.c.y +
-        ' 0,160'
+    template: '#header-view-template',
+    data: function() {
+        return {
+            dragging: false,
+            // quadratic bezier control point
+            c: {
+                x: 160,
+                y: 160
+            },
+            // record drag start point
+            start: {
+                x: 0,
+                y: 0
+            }
+        }
     },
-    contentPosition: function () {
-      var dy = this.c.y - 160
-      var dampen = dy > 0 ? 2 : 4
-      return {
-        transform: 'translate3d(0,' + dy / dampen + 'px,0)'
-      }
-    }
-  },
-  methods: {
-    startDrag: function (e) {
-      e = e.changedTouches ? e.changedTouches[0] : e
-      this.dragging = true
-      this.start.x = e.pageX
-      this.start.y = e.pageY
+    computed: {
+        headerPath: function() {
+            return 'M0,0 L2000,0 2000,160' +
+                'Q' + this.c.x + ',' + this.c.y +
+                ' 0,160'
+        },
+        contentPosition: function() {
+            var dy = this.c.y - 160
+            var dampen = dy > 0 ? 2 : 4
+            return {
+                transform: 'translate3d(0,' + dy / dampen + 'px,0)'
+            }
+        }
     },
-    onDrag: function (e) {
-      e = e.changedTouches ? e.changedTouches[0] : e
-      if (this.dragging) {
-        this.c.x = 160 + (e.pageX - this.start.x)
-        // dampen vertical drag by a factor
-        var dy = e.pageY - this.start.y
-        var dampen = dy > 0 ? 1.5 : 4
-        this.c.y = 160 + dy / dampen
-      }
-    },
-    stopDrag: function () {
-      if (this.dragging) {
-        this.dragging = false
-        dynamics.animate(this.c, {
-          x: 160,
-          y: 160
-        }, {
-          type: dynamics.spring,
-          duration: 700,
-          friction: 280
-        })
-      }
+    methods: {
+        startDrag: function(e) {
+            e = e.changedTouches ? e.changedTouches[0] : e
+            this.dragging = true
+            this.start.x = e.pageX
+            this.start.y = e.pageY
+        },
+        onDrag: function(e) {
+            e = e.changedTouches ? e.changedTouches[0] : e
+            if (this.dragging) {
+                this.c.x = 160 + (e.pageX - this.start.x)
+                    // dampen vertical drag by a factor
+                var dy = e.pageY - this.start.y
+                var dampen = dy > 0 ? 1.5 : 4
+                this.c.y = 160 + dy / dampen
+            }
+        },
+        stopDrag: function() {
+            if (this.dragging) {
+                this.dragging = false
+                dynamics.animate(this.c, {
+                    x: 160,
+                    y: 160
+                }, {
+                    type: dynamics.spring,
+                    duration: 700,
+                    friction: 280
+                })
+            }
+        }
     }
-  }
 })
 
 // Pokemon component
@@ -121,22 +127,28 @@ Vue.component('demo-grid', {
 // The raw data to observe
 var stats = [{
     label: 'HP',
-    value: 100
+    value: 100,
+    color: "background-color: #42b983"
 }, {
     label: 'ATK',
-    value: 100
+    value: 100,
+    color: "background-color: #42b983"
 }, {
     label: 'DEF',
-    value: 100
+    value: 100,
+    color: "background-color: #42b983"
 }, {
     label: 'SP.ATK',
-    value: 100
+    value: 100,
+    color: "background-color: #42b983"
 }, {
     label: 'SP.DEF',
-    value: 100
+    value: 100,
+    color: "background-color: #42b983"
 }, {
     label: 'SPEED',
-    value: 100
+    value: 100,
+    color: "background-color: #42b983"
 }]
 
 // A resusable polygon graph component
@@ -209,7 +221,9 @@ var pokeapp = new Vue({
             spAtk: "65",
             spDef: "65",
             speed: "45",
-            pic: "./pictures/bulbasaur.png"
+            pic: "./pictures/bulbasaur.png",
+            color: "background-color: green"
+
         }, {
             name: 'Charmander',
             type: "Fire",
@@ -219,7 +233,8 @@ var pokeapp = new Vue({
             spAtk: "60",
             spDef: "50",
             speed: "65",
-            pic: "./pictures/charmander.png"
+            pic: "./pictures/charmander.png",
+            color: "background-color: orange"
         }, {
             name: 'Squirtle',
             type: "Water",
@@ -229,7 +244,9 @@ var pokeapp = new Vue({
             spAtk: "50",
             spDef: "64",
             speed: "43",
-            pic: "./pictures/squirtle.png"
+            pic: "./pictures/squirtle.png",
+            color: "background-color: lightblue"
+
         }, {
             name: 'Pikachu',
             type: "Electric",
@@ -239,8 +256,9 @@ var pokeapp = new Vue({
             spAtk: "55",
             spDef: "55",
             speed: "90",
-            pic: "./pictures/pikachu.png"
-        } ],
+            pic: "./pictures/pikachu.png",
+            color: "background-color: gold"
+        }],
         newLabel: '',
         stats: stats,
         image: ''
@@ -252,11 +270,23 @@ var pokeapp = new Vue({
             image = pokemon.pic;
 
             stats[0].value = pokemon.hp;
+            stats[0].color = pokemon.color;
+
             stats[1].value = pokemon.attack;
+            stats[1].color = pokemon.color;
+
             stats[2].value = pokemon.defense;
+            stats[2].color = pokemon.color;
+
             stats[3].value = pokemon.spAtk;
+            stats[3].color = pokemon.color;
+
             stats[4].value = pokemon.spDef;
+            stats[4].color = pokemon.color;
+
             stats[5].value = pokemon.speed;
+            stats[5].color = pokemon.color;
+
         }
     }
 });
