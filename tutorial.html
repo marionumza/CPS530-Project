@@ -32,17 +32,22 @@
             <h2>Getting Started</h2>
             <p><b>To start implementation of the Pokedex we would have to think about what templates will be used if you are thinking about using it multiple times in the future. We know that we need to create a pokeapp grid based template to store all the data being inserted. So, it is beneficial to program the html template first to get an understanding of the layout. </b></p>
             <img src="./pictures/get1.png" alt="Pokeapp Grid Template" style="width:730px;height:310px;">
-            <p><b> The template tag indicates that there will be a template constructed based on an id in the JavaScript file <i>grid-template</i> and the table will generate a grid by using a for loop to go through the columns array. The columns are clickable using <i><code>@click=</code></i> and they will call a <i><code>sortBy(key)</code></i> function in methods. The columns will be sorted according to the ascending order and capitalized. The <i><code>:class ={ active: sortKey == key}</code></i> is a dynamic toggle that will toggle when <i><code>sortKey == key</code></i> and returns true. The <i><code>{ { key | capitalize } } </code></i> is filtering the sorted table head and capitalizing it. <code><i>Entry[key] </i></code>inputs all the text into the table and allows for it to be affected by the organization of the ascending and descending of the header after passing through the JS </b></p>
+            <p><b> The template tag indicates that there will be a template constructed based on an id in the JavaScript file <i>drag.js</i> and the table will generate a grid by using a for loop to go through the columns array. The columns are clickable using <i><code>@click=</code></i> and they will call a <i><code>sortBy(key)</code></i> function in methods. The columns will be sorted according to the ascending order and capitalized. The <i><code>:class ={ active: sortKey == key}</code></i> is a dynamic toggle that will toggle when <i><code>sortKey == key</code></i> and returns true. The <i><code>{ { key | capitalize } } </code></i> is filtering the sorted table head and capitalizing it. <code><i>Entry[key] </i></code>inputs all the text into the table and allows for it to be affected by the organization of the ascending and descending of the header after passing through the JS </b></p>
             <img src="./pictures/get2.png" alt="Pokeapp Grid Template" style="width:900px;height:710px;">
+            <p><b>In this demo-grid above, the vue component is the template that takes in all the values and produces the results. Data is poured into computed section of the component and goes through a filteredData function that sorts and orders the tables from ascending to descending. The filters section takes the str and capitalize that string. Methods in this case initializes once it gets clicked and sorts the headers.</b></p>
+            <img src="./pictures/get3.png" alt="Pokeapp Grid Template" style="width:770px;height:200px;">
+            <p><b>This part takes the polygraph-template from the javascript file and for loops the axis label with the necessary information and outputs a dynamic circular SVG map. The axis-label-template is the template that will display the text of the SVG file dynamically.</b></p>
+            <img src="./pictures/get4.png" alt="Pokeapp Grid Template" style="width:500px;height:900px;">
+            <p><b>This part takes the polygraph-template from the javascript file and for loops the axis label with the necessary information and outputs a dynamic circular SVG map. The axis-label-template is the template that will display the text of the SVG file dynamically.</b></p>
+
 
             <h2>Draggable Header Tutorial</h2>
-            <p>To implement the draggable header as seen on all of our pages we must make the following HTML, CSS, and JavaScript code. </p>
-            <img src="./pictures/html-template.png" style="width:730px;height:310px;">
-            <p>The following HTML code creates the template for the elastic header component to be used in the JavaScript file later. </p>
+            <p>To implement the draggable header as seen on all of our pages we must make the following HTML, CSS, and JavaScript code. The following HTML code creates the template for the elastic header component to be used in the JavaScript file later. VueJS uses "Modifier Keys" to trigger mouse or keyboard events. The <i><code>@mouse</code></i> and <i><code>@touch</code> are example of VueJS modifier keys</i></p>
+            <img src="./pictures/html-template.png" style="display:block; margin-left:auto; margin-right:auto;">
+            <p>The following JavaScript code uses the previous template to animate the header. In the method section of the JavaScript file the variables for the modifier keys are programmed accordingly to animate and trigger the keys. </p>
             <img src="./pictures/js-template.png" style="display:block; margin-left:auto; margin-right:auto;">
-            <p>The following JavaScript code uses the previous template to animate the header.</p>
-            <img src="./pictures/css-template.png" style="display:block; margin-left:auto; margin-right:auto;">
             <p>The following CSS code just simply styles the page</p>
+            <img src="./pictures/css-template.png" style="display:block; margin-left:auto; margin-right:auto;">
         </template>
     </draggable-header-view>
 </div>
